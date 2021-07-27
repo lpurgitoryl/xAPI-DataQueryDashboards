@@ -8,24 +8,125 @@
   <link rel="icon" href="favicon.ico">
 
   <title>xAPI Statement Viewer Demo</title>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> <!-- comment out // bootstrap and datatable components (styles)-->
-  <link rel="stylesheet" href="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/prettify.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/animate.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-  <script data-main="js/app" src="js/lib/store+json2.min.js"></script> <!-- comment out This is to store the json output in the browser, there's diffrent options each with diffrent drawbacks, created by this guy https://github.com/marcuswestin/store.js/blob/master/README-More.md -->
-  <script data-main="js/app" src="js/require.js"></script> <!-- comment out https://github.com/requirejs/requirejs used to load js in broweser -->
+  <!-- maybe dont need this-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
   <section class="container">
     <div class="page-header">
-      <h1 class="text-primary"><i class="glyphicon glyphicon-list-alt" ></i> xAPI Statement Viewer</h1>
+      <!--glyphicon glyphicon-list-alt is a bootstrap class for the icons-->
+      <h1 class="text-primary"><i class="fas fa-chart-line" ></i> xAPI Statement Viewer</h1>
     </div>
-  
+    <!-- now we want to create panels -->
 
+    <!-- side drop down lrs auth panel ("endpoint values") -->
+    <div class="row">
+      <div class="col-md-4">
+          <div class="card">
+            <div class="card-header" data-toogle="collapser">
+              <h4 class="panel-title"><a data-toggle="collapse" data-target="#auth" href="#auth" class="collapsed">LRS Basic Auth Setup</a></h4>
+            </div>
+            <!-- card info data targets-->
+            <div id="auth" class="card-collapse collapse">
+              <div class="card-body">
+      
+                <div class="row">
+      
+                  <form id="endpoint-values">
+      
+                    <div class="form-group">
+                      <label class="control-label" for="endpoint">Endpoint</label>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                        <input type="url" class="form-control" value="https://lrs.adlnet.gov/xapi/" aria-describedby="LRS Endpoint" id="endpoint" required />
+                      </div>
+                    </div>
+      
+                    <div class="form-group">
+                      <label class="control-label" for="username">Username</label>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" class="form-control" value="xapi-tools" aria-describedby="Username" id="username" required />
+                      </div>
+                    </div>
+      
+                    <div class="form-group">
+                      <label class="control-label" for="password">Password</label>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" class="form-control" value="xapi-tools" aria-describedby="Password" id="password" required />
+                      </div>
+                    </div>
+      
+                    <div class="col-md-12">
+                      <p class="pull-right">
+                        <a class="btn btn-default" href="#" role="button" id="reset-auth">Reset to Defaults <i class="glyphicon glyphicon-remove-circle"></i></a>
+                        <a class="btn btn-primary" href="#" role="button" id="save-auth">Save Auth <i class="glyphicon glyphicon-save"></i></a>
+                      </p>
+                    </div>
+      
+                  </form><!-- #endpoint-values -->
+      
+                </div><!-- nested .row -->
+      
+              </div><!-- .card-body -->
+            </div><!-- .card-collapse -->
+
+          </div><!-- card  -->
+       </div><!-- lrs card sizing -->
+       <div class="col-lg-8">
+         <div class="card">
+          <div class="card-header" data-toogle="collapser">
+            <h4 class="card-title"><a data-toggle="collapse" data-target="#query-options" href="#query-options" class="collapsed">Query xAPI Statements</a></h4>
+          </div>
+
+         </div>
+      
+       </div>
+      
+    </div><!-- row -->
+      
+    <!--   lrs card end                                                          -->
+    <div class="row">
+      <div class="col-md-4">
+          <div class="card">
+            <div class="card-header" data-toogle="collapser">
+              <h4 class="panel-title"><a data-toggle="collapse" data-target="#graphselection" href="#graphselection" class="collapsed">Graph Selection</a></h4>
+            </div>
+            <!-- card info data targets-->
+            <div id="graphselection" class="card-collapse collapse">
+              <div class="card-body">
+      
+                <div class="row">
+      
+                  
+                    <div class="col-md-12">
+                      <p class="pull-right">
+                        <a class="btn btn-primary" href="#" role="button" id="save-graphs">Create Graphs <i class="glyphicon glyphicon-save"></i></a>
+                      </p>
+                    </div>
+      
+                
+      
+                </div><!-- nested .row -->
+      
+              </div><!-- .card-body -->
+            </div><!-- .card-collapse -->
+
+          </div><!-- card  -->
+       </div><!-- card sizing -->
+      
+    </div><!-- row -->
+    <!-- Query Area-->
+    
+    
+  </section>
 </body>
 </html>
