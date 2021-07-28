@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
+  
   <!-- maybe dont need this-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@
 <body>
   <section class="container">
     <div class="page-header">
-      <!--glyphicon glyphicon-list-alt is a bootstrap class for the icons-->
+      <!-- -->
       <h1 class="text-primary"><i class="fas fa-chart-line" ></i> xAPI Statement Viewer</h1>
     </div>
     <!-- now we want to create panels -->
@@ -31,7 +31,7 @@
       <div class="col-md-4">
           <div class="card">
             <div class="card-header" data-toogle="collapser">
-              <h4 class="panel-title"><a data-toggle="collapse" data-target="#auth" href="#auth" class="collapsed">LRS Basic Auth Setup</a></h4>
+              <h4 class="panel-title"><a data-toggle="collapse" data-target="#auth" href="#auth" class="collapsed"><i class="fa fa-chevron-down"></i> LRS Basic Auth Setup </a></h4>
             </div>
             <!-- card info data targets-->
             <div id="auth" class="card-collapse collapse">
@@ -42,25 +42,22 @@
                   <form id="endpoint-values">
       
                     <div class="form-group">
-                      <label class="control-label" for="endpoint">Endpoint</label>
+                      <label class="control-label" for="endpoint"><span class="input-group-addon"><i class="fas fa-globe"></i></span> Endpoint</label>
                       <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
                         <input type="url" class="form-control" value="https://lrs.adlnet.gov/xapi/" aria-describedby="LRS Endpoint" id="endpoint" required />
                       </div>
                     </div>
       
                     <div class="form-group">
-                      <label class="control-label" for="username">Username</label>
+                      <label class="control-label" for="username"><span class="input-group-addon"><i class="fas fa-user-edit"></i></span> Username</label>
                       <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input type="text" class="form-control" value="xapi-tools" aria-describedby="Username" id="username" required />
                       </div>
                     </div>
       
                     <div class="form-group">
-                      <label class="control-label" for="password">Password</label>
+                      <label class="control-label" for="password"><span class="input-group-addon"><i class="fas fa-user-lock"></i></span> Password</label>
                       <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input type="password" class="form-control" value="xapi-tools" aria-describedby="Password" id="password" required />
                       </div>
                     </div>
@@ -80,25 +77,10 @@
             </div><!-- .card-collapse -->
 
           </div><!-- card  -->
-       </div><!-- lrs card sizing -->
-       <div class="col-lg-8">
-         <div class="card">
-          <div class="card-header" data-toogle="collapser">
-            <h4 class="card-title"><a data-toggle="collapse" data-target="#query-options" href="#query-options" class="collapsed">Query xAPI Statements</a></h4>
-          </div>
 
-         </div>
-      
-       </div>
-      
-    </div><!-- row -->
-      
-    <!--   lrs card end                                                          -->
-    <div class="row">
-      <div class="col-md-4">
           <div class="card">
             <div class="card-header" data-toogle="collapser">
-              <h4 class="panel-title"><a data-toggle="collapse" data-target="#graphselection" href="#graphselection" class="collapsed">Graph Selection</a></h4>
+              <h4 class="panel-title"><a data-toggle="collapse" data-target="#graphselection" href="#graphselection" class="collapsed"><i class="fa fa-chevron-down"></i> Graph Selection </a></h4>
             </div>
             <!-- card info data targets-->
             <div id="graphselection" class="card-collapse collapse">
@@ -119,13 +101,41 @@
       
               </div><!-- .card-body -->
             </div><!-- .card-collapse -->
+          </div>
+       </div><!-- col lrs -->
 
-          </div><!-- card  -->
-       </div><!-- card sizing -->
+       <div class="col-lg-8 float-right">
+          <div class="card">
+            <div class="card-header" data-toogle="collapser">
+              <h4 class="panel-title"><a data-toggle="collapse" data-target="#query-options" href="#query-options" class="collapsed"><i class="fa fa-chevron-down"></i> Query </a></h4>
+            </div>
+            <!-- card info data targets-->
+            <div id="query-options" class="card-collapse collapse">
+              <div class="card-body">
       
+                <div class="row">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent convallis nunc sodales lobortis consequat. Ut mauris purus, rutrum finibus erat ut, ornare mollis risus. Sed nec orci magna. Duis at imperdiet justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nullam volutpat in ante sed malesuada. Suspendisse ex nisi, commodo et nisl non, auctor feugiat ipsum. Vivamus vitae tellus ipsum. Proin sed consequat diam. Nulla dui dui, sollicitudin id orci nec, fermentum maximus enim. Nam ut consequat lacus. Vivamus lobortis justo vitae feugiat posuere. Vivamus vehicula dui et congue pellentesque.
+
+Nam eu hendrerit justo. Morbi interdum aliquam diam, id aliquam tortor laoreet eget. Proin tempus sit amet libero ac ultricies. Cras enim arcu, sollicitudin in lorem ac, commodo lacinia ante. Cras et imperdiet leo, a interdum nisl. Fusce quis lectus mauris. Mauris eros nisi, faucibus ac ornare a, mollis vitae leo. Etiam quis sem ultricies, posuere turpis eu, maximus est. Phasellus aliquam a eros nec consequat. Duis dapibus ex id nisi cursus, nec tincidunt arcu eleifend. Mauris finibus convallis consectetur. Aenean eleifend erat et quam porta cursus. Nunc ac leo sit amet risus lobortis cursus eu nec sapien.
+
+Nulla sit amet scelerisque est. In ante massa, elementum vel mauris non, maximus pellentesque libero. Integer non ornare odio. Duis a tortor et lacus euismod rhoncus. Integer congue feugiat nisl sit amet egestas. Vestibulum a lorem lobortis, dapibus justo quis, placerat enim. Sed lacinia quam non neque mattis, non vestibulum massa ullamcorper. Aenean ac orci eleifend, rhoncus tellus non, facilisis leo. Ut aliquet lorem urna, et posuere ipsum elementum non. Sed sed ligula convallis, porta magna ac, feugiat augue. Curabitur sit amet urna semper, egestas libero sed, semper est.
+                  </p>
+                  
+                    
+      
+                
+      
+                </div><!-- nested .row -->
+      
+              </div><!-- .card-body -->
+            </div><!-- .card-collapse -->
+          </div>
+      </div><!-- card sizing -->
+       
     </div><!-- row -->
-    <!-- Query Area-->
-    
+    <!--   all card end                                                          -->
+  
     
   </section>
 </body>
