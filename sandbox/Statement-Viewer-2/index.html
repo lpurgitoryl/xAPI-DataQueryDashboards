@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
@@ -8,13 +9,21 @@
   <link rel="icon" href="favicon.ico">
 
   <title>xAPI Demo</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
   <!-- maybe dont need this-->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
 
 </head>
 
@@ -22,7 +31,7 @@
   <section class="container">
     <div class="page-header">
       <!-- -->
-      <h1 class="text-primary"><i class="fas fa-chart-line" ></i> xAPI Instructor Dashboard</h1>
+      <h1 class="text-primary"><i class="fas fa-chart-line"></i> xAPI Instructor Dashboard</h1>
       <hr>
     </div>
     <!-- now we want to create panels -->
@@ -30,173 +39,182 @@
     <!-- side drop down lrs auth panel ("endpoint values") -->
     <div class="row">
       <div class="col-md-4">
-          <div class="card">
-            <div class="card-header" data-toogle="collapser">
-              <h4 class="panel-title"><a data-toggle="collapse" data-target="#auth" href="#auth" class="collapsed"><i class="fa fa-chevron-down"></i> LRS Basic Auth Setup </a></h4>
-            </div>
-            <!-- card info data targets-->
-            <div id="auth" class="card-collapse collapse">
-              <div class="card-body">
-      
-                <div class="row">
-      
-                  <form id="endpoint-values">
-      
-                    <div class="form-group">
-                      <label class="control-label" for="endpoint">  Endpoint</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1"><i class="fas fa-globe"></i></span>
-                        </div>
-                        <input type="url" class="form-control" value="https://lrs.adlnet.gov/xapi/" aria-describedby="LRS Endpoint" id="endpoint" required />
-                      </div>
-                    </div>
-      
-                    <div class="form-group">
-                      <label class="control-label" for="username">  Username</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon2"><i class="fas fa-user-edit"></i></span>
-                        </div>
-                        <input type="text" class="form-control" value="xapi-tools" aria-describedby="Username" id="username" required />
-                      </div>
-                    </div>
-      
-                    <div class="form-group">
-                      <label class="control-label" for="password">  Password</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon3"><i class="fas fa-user-lock"></i></span>
-                        </div>
-                        <input type="password" class="form-control" value="xapi-tools" aria-describedby="Password" id="password" required />
-                      </div>
-                    </div>
-      
-                    <div class="col-md-12">
-                      <p class="pull-right">
-                        <a class="btn btn-default" href="#" role="button" id="reset-auth">Reset to Defaults</a>
-                        <a class="btn btn-primary" href="#" role="button" id="save-auth">Save Auth</a>
-                      </p>
-                    </div>
-      
-                  </form><!-- #endpoint-values -->
-      
-                </div><!-- nested .row -->
-      
-              </div><!-- .card-body -->
-            </div><!-- .card-collapse -->
+        <div class="card">
+          <div class="card-header" data-toogle="collapser">
+            <h4 class="panel-title"><a data-toggle="collapse" data-target="#auth" href="#auth" class="collapsed"><i
+                  class="fa fa-chevron-down"></i> LRS Basic Auth Setup </a></h4>
+          </div>
+          <!-- card info data targets-->
+          <div id="auth" class="card-collapse collapse">
+            <div class="card-body">
 
-          </div><!-- card  -->
+              <div class="row">
 
-          <div class="card">
-            <div class="card-header" data-toogle="collapser">
-              <h4 class="panel-title"><a data-toggle="collapse" data-target="#graphselection" href="#graphselection" class="collapsed"><i class="fa fa-chevron-down"></i> Graph Selection </a></h4>
-            </div>
-            <!-- card info data targets-->
-            <div id="graphselection" class="card-collapse collapse">
-              <div class="card-body">
-      
-                <div class="row">
-      
-                  <!--
+                <form id="endpoint-values">
+
+                  <div class="form-group">
+                    <label class="control-label" for="endpoint"> Endpoint</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-globe"></i></span>
+                      </div>
+                      <input type="url" class="form-control" value="https://lrs.adlnet.gov/xapi/"
+                        aria-describedby="LRS Endpoint" id="endpoint" required />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label" for="username"> Username</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2"><i class="fas fa-user-edit"></i></span>
+                      </div>
+                      <input type="text" class="form-control" value="xapi-tools" aria-describedby="Username"
+                        id="username" required />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label" for="password"> Password</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3"><i class="fas fa-user-lock"></i></span>
+                      </div>
+                      <input type="password" class="form-control" value="xapi-tools" aria-describedby="Password"
+                        id="password" required />
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <p class="pull-right">
+                      <a class="btn btn-default" href="#" role="button" id="reset-auth">Reset to Defaults</a>
+                      <a class="btn btn-primary" href="#" role="button" id="save-auth">Save Auth</a>
+                    </p>
+                  </div>
+
+                </form><!-- #endpoint-values -->
+
+              </div><!-- nested .row -->
+
+            </div><!-- .card-body -->
+          </div><!-- .card-collapse -->
+
+        </div><!-- card  -->
+
+        <div class="card">
+          <div class="card-header" data-toogle="collapser">
+            <h4 class="panel-title"><a data-toggle="collapse" data-target="#graphselection" href="#graphselection"
+                class="collapsed"><i class="fa fa-chevron-down"></i> Graph Selection </a></h4>
+          </div>
+          <!-- card info data targets-->
+          <div id="graphselection" class="card-collapse collapse">
+            <div class="card-body">
+
+              <div class="row">
+
+                <!--
                     <div class="col-md-12">
                       <p class="pull-right">
                         <a class="btn btn-primary" href="#" role="button" id="save-graphs">Create Graphs <i class="glyphicon glyphicon-save"></i></a>
                       </p>
                     </div>
                   -->
-                  <div class="form-group col-md-12">
-                    <label for="graphselection">Select Graph Type</label>
-                    <select class="form-control" name="" id="">
-                      <option></option>
-                    </select>
-                    <p class="font-italic">please select graphs</p>
-                  </div>
-      
-                  
-      
-                </div><!-- nested .row -->
-      
-              </div><!-- .card-body -->
-            </div><!-- .card-collapse -->
+                <div class="form-group col-md-12">
+                  <label for="graphselection">Select Graph Type</label>
+                  <select class="form-control" name="" id="">
+                    <option></option>
+                  </select>
+                  <p class="font-italic">please select graphs</p>
+                </div>
+
+
+
+              </div><!-- nested .row -->
+
+            </div><!-- .card-body -->
+          </div><!-- .card-collapse -->
+        </div>
+      </div><!-- col lrs -->
+
+      <div class="col-lg-8 float-right">
+        <div class="card">
+          <div class="card-header" data-toogle="collapser">
+            <h4 class="panel-title"><a data-toggle="collapse" data-target="#query-options" href="#query-options"
+                class="collapsed"><i class="fa fa-chevron-down"></i> Query </a></h4>
           </div>
-       </div><!-- col lrs -->
+          <!-- card info data targets-->
+          <div id="query-options" class="card-collapse collapse show">
+            <div class="card-body">
 
-       <div class="col-lg-8 float-right">
-          <div class="card">
-            <div class="card-header" data-toogle="collapser">
-              <h4 class="panel-title"><a data-toggle="collapse" data-target="#query-options" href="#query-options" class="collapsed"><i class="fa fa-chevron-down"></i> Query </a></h4>
-            </div>
-            <!-- card info data targets-->
-            <div id="query-options" class="card-collapse collapse show">
-              <div class="card-body">
-      
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="search-predefined-verb">Verb</label>
-                    <select class="form-control" name="search-predefined-verb" id="search-predefined-verb" >
-                      <option></option>
-                    </select>
-                  </div>
-
-                  <div class="form-group col-md-6">
-                    <label for="search-user-verb-id">Verb ID</label>
-                    <input type="text" class="form-control" value="" aria-describedby="Verb ID" placeholder="http://adlnet.gov/verbs/answered" id="search-user-verb-id" />
-                  </div>
-
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="search-predefined-verb">Verb</label>
+                  <select class="form-control" name="search-predefined-verb" id="search-predefined-verb">
+                    <option></option>
+                  </select>
                 </div>
-                <!--  .row 1 -->
 
-                <div class="row">
-                  <div class="form-group col-md-12">
-                    <label for="search-student-name">Student Name</label>
-                    <select class="form-control" name="Student Name" id="search-student-name">
-                      <option></option>
-                    </select>
-                    <p class="font-italic">No selection will serach through all students</p>
-                  </div>
-                  
-                 
+                <div class="form-group col-md-6">
+                  <label for="search-user-verb-id">Verb ID</label>
+                  <input type="text" class="form-control" value="" aria-describedby="Verb ID"
+                    placeholder="http://adlnet.gov/verbs/answered" id="search-user-verb-id" />
                 </div>
-                <!--row 2-->
 
-                <div class="row">
-                  <div class="form-group col-md-6">
-                    <label for="search-module-name">Module Name</label>
-                    <select class="form-control" name="Module Name" id="search-module-name">
-                      <option></option>
-                    </select>
-                    <p class="font-italic">No selection will serach through all modules</p>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="search-slide-number">Slide</label>
-                    <select class="form-control" name="slide" id="search-slide-number">
-                      <option></option>
-                    </select>
-                    <p class="font-italic">No selection will serach through all slides</p>
-                  </div>
-                  
-                </div>
-                <p class="font-italic"><a  href="https://github.com/lpurgitoryl">Module Overview</a></p>
-                <!-- file upload for testing -->
-                <div class="input-group mb-3">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01">
-                    <label class="custom-file-label" for="inputGroupFile01">Upload JSON file</label>
-                  </div>
-                </div>
-                <!-- end file upload-->
+              </div>
+              <!--  .row 1 -->
 
-              </div><!-- .card-body -->
-            </div><!-- .card-collapse -->
-            <button type="submit" class="btn btn-primary">Submit and Generate</button>
-          </div> <!--card -->
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label for="search-student-name">Student Name</label>
+                  <select class="form-control" name="Student Name" id="search-student-name">
+                    <option></option>
+                  </select>
+                  <p class="font-italic">No selection will serach through all students</p>
+                </div>
+
+
+              </div>
+              <!--row 2-->
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="search-module-name">Module Name</label>
+                  <select class="form-control" name="Module Name" id="search-module-name">
+                    <option></option>
+                  </select>
+                  <p class="font-italic">No selection will serach through all modules</p>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="search-slide-number">Slide</label>
+                  <select class="form-control" name="slide" id="search-slide-number">
+                    <option></option>
+                  </select>
+                  <p class="font-italic">No selection will serach through all slides</p>
+                </div>
+
+              </div>
+              <p class="font-italic"><a href="https://github.com/lpurgitoryl">Module Overview</a></p>
+              <!-- file upload for testing -->
+              <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01">
+                  <label class="custom-file-label" for="inputGroupFile01">Upload JSON file</label>
+                </div>
+              </div>
+              <!-- end file upload-->
+
+            </div><!-- .card-body -->
+          </div><!-- .card-collapse -->
+          <button type="submit" class="btn btn-primary">Submit and Generate</button>
+        </div>
+        <!--card -->
       </div><!-- card sizing -->
-       
+
     </div><!-- row -->
     <!--   all card end                                                          -->
-  
-    
+
+
   </section>
 </body>
+
 </html>
