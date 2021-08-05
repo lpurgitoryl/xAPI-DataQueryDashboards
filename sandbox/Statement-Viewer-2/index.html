@@ -204,18 +204,10 @@
 
               </div>
               <p class="font-italic"><a href="https://github.com/lpurgitoryl">Module Overview</a></p>
-              <!-- file upload for testing -->
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile01">
-                  <label class="custom-file-label" for="inputGroupFile01">Upload JSON file</label>
-                </div>
-              </div>
-              <!-- end file upload-->
 
             </div><!-- .card-body -->
           </div><!-- .card-collapse -->
-          <button type="submit" class="btn btn-primary">Submit and Generate</button>
+          <button type="submit" class="btn btn-primary" id="submit-graphs">Submit and Generate</button>
         </div>
         <!--card -->
       </div><!-- card sizing -->
@@ -224,7 +216,16 @@
     <!--   all card end                                                          -->
 
     <hr>
-    <div style="width: 1000px;height:500px" id="this-is-the-div"></div>
+    <div class = "row"><!-- create a graph with only 2 graphs per row-->
+      <div class="col-md-6">
+        <h2 class="text-primary" id="#title1"></h2>
+        <div style="height: 500px" id="this-is-the-div"></div>
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-primary" id="#title2"></h2>
+        <div style="height: 500px" id="row1-col2"></div>
+      </div>
+    </div><!-- end create a graph with only 2 graphs per row-->
 
   </section>
 </body>
