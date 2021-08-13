@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://lrs.io/integrations/public/vqlUtils/renderer.js"></script>
+</head>
+<body>
+    <div style="width: 1000px;height:500px" id="this-is-the-div"></div>
+    <script>
+        let endpoint = "https://analytics-demo.dev.lrs.io/xapi/analyze";
+        let username = "wigtic";
+        let password = "sudguw";
+        let vqlQuery = {
+            filter: {
+            },
+            process:
+            [
+                {
+                    $timeSeries: {
+                        path: "timestamp",   
+                    },
+                },
+                {
+                    $serialChart: {}
+                },
+            ],
+        }
+        $.ajax({
+            url:endpoint,
+            method:"post",
+            data:JSON.stringify(vqlQuery),
+            headers:{
+                "Authorization": "Basic " + btoa(username+":"+password),
+            },
+            contentType:"application/json",
+            success:function(yourVQL_result)
+            {
+                vqlRender("this-is-the-div", yourVQL_result);
+            }
+        })
+        
+        
+    </script>
+</body>
+</html>
