@@ -1,4 +1,4 @@
-
+//module overview
 function piechart_TotalActorStatementsPerModule(module_name){//use array[index] or string
     console.log("reuqest one has been made");
 
@@ -269,3 +269,4 @@ function barchart_AvgScaledScore(module_name){
       };
 };
 
+//

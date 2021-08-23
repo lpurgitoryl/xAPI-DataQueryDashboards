@@ -106,6 +106,17 @@ $(document).ready(function () {
         return selection_name;
     };
 
+    function grabModuleSelection() {//return selcted graph
+
+        // $("#select-graph-bundle").change(function(){
+        //     alert($(this).val());
+        //  });
+
+        selection_name = $("#search-module-name").val();
+        console.log(selection_name);
+        return selection_name;
+    };
+
    
     function makeRequest(vql_JSON, chartID) { //take in JSON VQL result and div ID 
         $.ajax({
@@ -145,14 +156,14 @@ $(document).ready(function () {
 
         for(let i = 0; i < 12; i++){
             console.log(module_name_array[i].slice(7, module_name_array[i].length) + "   this is the module name");
-            console.log(grabGraphSelection()+ "  this is the graph selection");
+            console.log( grabModuleSelection()+ "  this is the graph selection");
 
             modName = module_name_array[i].slice(7, module_name_array[i].length);
             // if( modName == grabGraphSelection() ){
                // alert("MATCH");
             // };
             // selectName = grabGraphSelection()
-            if( modName == grabGraphSelection() ){
+            if( modName ==  grabModuleSelection() ){
                 alert("MATCH");
 
                 console.log("  this is the chart id: "+ chart);
@@ -179,8 +190,9 @@ $(document).ready(function () {
 
         };
 
-
+        chart = "1"
     }
+
 
     $("#submit-graphs").click(function (e) {
         /* 
@@ -188,35 +200,17 @@ $(document).ready(function () {
         TODO: Make 
 
         */
+       // $('#clear').empty();
 
         console.log("user has clicked submit graphs");
         saveConfig();
         console.log("user has saved config on button click");
-       
-        //   makeRequest(vqlQuery, chart );
-        //   chart++;
-        // console.log("this is the chart id: "+ chart);
-        // console.log(piechart_TotalActorStatementsPerModule(module_name_array[11]));
 
-        // makeRequest( piechart_TotalActorStatementsPerModule(module_name_array[11]) ,chart);
-        // chart++;
-        // console.log("this is the chart id: "+ chart);
-
-        // makeRequest( linechart_TimeStampActivityOverTime(module_name_array[11]) , chart );
-        // chart++;
-        // console.log("this is the chart id: "+ chart);
-
-        // makeRequest( barchart_ResultDurationForVerb(module_name_array[11]), chart);
-        // chart++;
-        // console.log("this is the chart id: "+ chart);
-
-        // makeRequest( linechart_TimeStampAvgScaledScore(module_name_array[11]), chart);
-        // chart++;
-        // console.log("this is the chart id: "+ chart);
-
-        // makeRequest( barchart_AvgScaledScore(module_name_array[11]), chart);
-        createModuleGraphs();
-        
+        if(grabGraphSelection() == "Module Overview"){
+            createModuleGraphs();
+        } else if(grabGraphSelection() == "Module Overview: Student Selection"){
+            
+        }
      e.preventDefault();
     })
 });

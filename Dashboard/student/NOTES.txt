@@ -1,0 +1,1 @@
+use local storage method to grab name and mbox identifier
